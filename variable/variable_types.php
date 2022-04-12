@@ -4,12 +4,13 @@
     <?php 
     $name = 'Sarah';
     $age = 39;
-    $eyes = 'brun';
+    $eyes = 'brown';
     $family = array(
         0 => 'Spike',
         1 => 'Dexter',
         2 => 'Ezio',
         3 => 'Néo');
+    $hungry = false;
     ?>
   <p>Hi! My name is <?php echo $name ?> </p>
   <p>I am <?php echo $age ?>  years old.</p>
