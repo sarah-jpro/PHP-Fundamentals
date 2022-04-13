@@ -80,7 +80,7 @@ if ($now  > "05:00" AND $now <= "09:00") {
     <input type="submit" name="submit" value="Enter">
 </form>
 
-<h2>4.Display a different greeting according to the user's age and gender.(A finir)</h2>
+<h2>4. Display a different greeting according to the user's age and gender.(A finir)</h2>
 
 <h2>5. Display a different greeting according to the user's age, gender and mothertongue.(A faire)</h2>
 
