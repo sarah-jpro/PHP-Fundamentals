@@ -1,3 +1,5 @@
+<h2>1. Clean your room</h2>
+
 <?php
 /**
  * Series of exercises on PHP conditional structures.
@@ -33,7 +35,7 @@ $room_filthiness = $possible_states[4];
     echo "Nothing to do, room is neat.";
 }
 ?>
-<p>2.Display a different greeting message depending on the time of the day.</p>
+<h2>2.Display a different greeting message depending on the time of the day.</h2>
 
 <?php
 $now = date ("H:i"); 
@@ -52,7 +54,7 @@ if ($now  > "05:00" AND $now <= "09:00") {
     echo "Good night !";
 }
 ?>
-<p>3.Display a different greeting according to the user's age.</p>
+<h2>3.Display a different greeting according to the user's age.</h2>
 <?php
 
     if (isset($_GET['age']) && ctype_digit($_GET['age'])) {
@@ -78,26 +80,66 @@ if ($now  > "05:00" AND $now <= "09:00") {
     <input type="submit" name="submit" value="Enter">
 </form>
 
-<p>4.Display a different greeting according to the user's age and gender.(A finir)</p>
-<p>5. Display a different greeting according to the user's age, gender and mothertongue.(A faire)</p>
-<P>6. L’équipe de soccer féminin</P>
+<h2>4.Display a different greeting according to the user's age and gender.(A finir)</h2>
 
-<form action="action.php" method="post">
+<h2>5. Display a different greeting according to the user's age, gender and mothertongue.(A faire)</h2>
+
+<h2>6. The girl soccer team</h2>
+
+<form action="" method="get">
     <p>Votre nom : <input type="text" name="nom" /></p>
     <p>Votre âge : <input type="text" name="age" /></p>
-    <input type="radio" name="gender" value="Man">Man<br> 
-    <input type="radio" name="gender" value="Woman">Woman<br>  
+    <label for="gender">Man or Woman?  : </label>
+    <input type="radio" name="gender" value="man"> Man
+    <input type="radio" name="gender" value="woman"> Woman <br> 
     <p><input type="submit" value="Submit"></p>
- </form>
- <?php
+</form>
 
-    if (isset($_GET['age']) && ctype_digit($_GET['age'])) {
-        $age = $_GET['age'];
+<?php
+$age = isset( $_GET ['age']);
+$gender = isset ($_GET ['gender']);
 
-        if($age >= 21 && $age <= 40) {
-            echo "welcome to the team !";
-        } else if($age >=41 && $age < 18) {
-            echo 'Hello Teenager !';
-        } 
+if (isset($age) AND isset($gender)) {
+    if ($gender == "Woman" && $age >21 && $age <40){
+        echo "Welcome to the team!";
+    }else {
+        echo "Sorry you don't fit the criteria";
     }
+}
 ?>
+
+<h2>7. Réalisez la même chose, sans l’ELSE. (A faire)</h2>
+
+
+<h2>8. Display a grade according to the note </h2>
+
+<form action="" method="get">
+    <label for="note">Your notation is : </label>
+    <input type="" name="note">
+    <input type="submit" value="Submit" name="submit">
+</form>
+
+<?php
+if(isset($_GET['note'])){
+    if($_GET['note'] < 4){
+        echo "This work is really bad. What a dumb kid!";
+    }
+    if($_GET['note'] <= 9 && $_GET['note']> 4) {
+        echo "This is not sufficient. More studying is required.";
+    }
+    if($_GET['note'] == 10) {
+        echo "barely enough!";
+    }
+    if($_GET['note'] <=14 && $_GET['note']> 10) {
+        echo "Not bad!";
+    }
+    if($_GET['note'] <=18 && $_GET['note']> 14) {
+        echo "Bravo, bravissimo!";
+    }
+    if($_GET['note'] == 20 && $_GET['note']> 18) {
+        echo "Too good to be true : confront the cheater!";
+    }
+}
+?>
+
+
