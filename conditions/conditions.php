@@ -55,34 +55,53 @@ if ($now  > "05:00" AND $now <= "09:00") {
 }
 ?>
 <h2>3.Display a different greeting according to the user's age.</h2>
-<?php
 
-    if (isset($_GET['age']) && ctype_digit($_GET['age'])) {
-        $age = $_GET['age'];
+<h2>4. Display a different greeting according to the user's age and gender.</h2>
 
-        if($age > 0 && $age <= 12) {
-            echo 'Hello kiddo!';
-        } else if($age > 12 && $age < 18) {
-            echo 'Hello Teenager !';
-        } else if($age >= 18 && $age <= 115) {
-            echo 'Hello Adult !';
-        } else if($age > 115) {
-            echo 'Wow! Still alive ? Are you a robot, like me ? Can I hug you ?';
-        }
-    }
-?>
+<h2>5. Display a different greeting according to the user's age, gender and mothertongue.</h2>
 
 <form method="get" action="">
     <label for="age">Please type your age: </label>
     <input type="text" id="age" name="age" value="" /><br>
+    <label for="gender">Man or Woman?  : </label> <br>
     <input type="radio" name="gender" value="Man">Man<br> 
-    <input type="radio" name="gender" value="Woman">Woman<br>  
-    <input type="submit" name="submit" value="Enter">
+    <input type="radio" name="gender" value="Woman">Woman<br>
+    <label for="language">Do you speak Engligh?  : </label> <br>
+    <input type="radio" name="language" value="yes"> yes <br> 
+    <input type="radio" name="language" value="no"> no <br> 
+    <input type="submit" name="submit" value="Greet me now">
 </form>
+<?php
 
-<h2>4. Display a different greeting according to the user's age and gender.(A finir)</h2>
+$age = isset($_GET['age']) ? $_GET['age'] : NULL;
+$gender = isset($_GET['gender']) ? $_GET['gender'] : NULL;
+$language = isset($_GET['language']) ? $_GET['language'] : NULL;
 
-<h2>5. Display a different greeting according to the user's age, gender and mothertongue.(A faire)</h2>
+if ($gender === 'man' && $language === "yes") {
+    if ($age <= 12) {echo "Hello mister kiddo!";} 
+    else if ($age <= 18){echo "Hello mister Teenager!";} 
+    else if ($age <= 115) {echo "Hello mister Adult!";} 
+    else {echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";}  
+} elseif ($gender === 'man' && $language=== "no") {
+    if ($age <= 12) {echo "Aloha mister kiddo!";} 
+    else if ($age <= 18){echo "Aloha mister Teenager!";} 
+    else if ($age <= 115) {echo "Aloha mister Adult!";} 
+    else {echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";}  
+} elseif ($gender === 'woman' && $language === "yes") {
+    if ($age <= 12) {echo "Hello mister kiddo!";} 
+    else if ($age <= 18){echo "Hello mister Teenager!";} 
+    else if ($age <= 115) {echo "Hello mister Adult!";} 
+    else {echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";}  
+} else {
+    if ($age <= 12) {echo "Aloha miss kiddo!";} 
+    else if ($age <= 18){echo "Aloha miss Teenager!";} 
+    else if ($age <= 115) {echo "Aloha miss Adult!";} 
+    else {echo "Wow! Still alive? Are you a robot, like me? Can I hug you?";}  
+};
+
+?>
+
+
 
 <h2>6. The girl soccer team</h2>
 
@@ -96,19 +115,39 @@ if ($now  > "05:00" AND $now <= "09:00") {
 </form>
 
 <?php
-$age = isset( $_GET ['age']);
-$gender = isset ($_GET ['gender']);
+$age = isset($_GET['age']);
+$gender = isset($_GET['gender']);
 
-if (isset($age) AND isset($gender)) {
-    if ($gender == "Woman" && $age >21 && $age <40){
-        echo "Welcome to the team!";
-    }else {
+if(isset($age) AND isset($gender)){
+    if($gender == "woman" && $age > 21 && $age < 40) {
+        echo "welcome to the team !";
+    } else {
         echo "Sorry you don't fit the criteria";
     }
 }
 ?>
 
-<h2>7. Réalisez la même chose, sans l’ELSE. (A faire)</h2>
+<h2>7. Réalisez la même chose, sans l’ELSE.</h2>
+
+
+<form action="" method="get">
+    <label for="age">Your age : </label>
+    <input type="" name="age"><br>
+    <label for="name">Your name : </label>
+    <input type="" name="name"><br>
+    <label for="gender">Man or Woman?  : </label>
+    <input type="radio" name="gender" value="man"> Man
+    <input type="radio" name="gender" value="woman"> Woman <br> 
+    <p><input type="submit" value="Submit"></p>
+</form>
+
+<?php
+
+if(isset($_GET['age']) AND isset($_GET['gender'])){
+    if($_GET['gender'] == "woman" && $_GET['age'] > 21 && $_GET['age'] < 40) {echo "welcome to the team !";}
+    if($_GET['gender'] == "man" && $_GET['age'] < 21 && $_GET['age'] > 40) {echo "Sorry you don't fit the criteria";}
+}
+?>
 
 
 <h2>8. Display a grade according to the note </h2>

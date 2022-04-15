@@ -17,7 +17,7 @@ for ($numbers = 1; $numbers <= 120 ; $numbers ++) {
 
 <h2>Exercice n°3  </h2>
 <?php 
-$team = ['Elise', 'Axel', 'Anaïs', 'Elise', 'Sarah', 'Matthias', 'Pierre', 'Kevin', 'Amoryne', 'David', 'Pierre', 'Corentin', 'Phillipe'];
+$team = ['Elise', 'Axel', 'Anaïs', 'Elise', 'Sarah', 'Matthias', 'Pierre', 'Kevin', 'Amoryne', 'David', 'Pierre', 'Corentin', 'Phillipe','Julie','Chris'];
 foreach ($team as $firstame) {
     echo $firstame . " - ";
 }
